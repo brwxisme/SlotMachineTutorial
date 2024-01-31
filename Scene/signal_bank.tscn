@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkrdb5lq5csw2"]
+
+[ext_resource type="Script" path="res://Scripts/SignalBank.gd" id="1_niyld"]
+
+[node name="SignalBank" type="Node"]
+script = ExtResource("1_niyld")

@@ -1,0 +1,124 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0fincq6b537q"]
+
+[ext_resource type="PackedScene" uid="uid://c3c2cqtdm7tb5" path="res://Scene/reel.tscn" id="1_l6rrs"]
+[ext_resource type="Script" path="res://Scripts/slot_machine_ui.gd" id="1_t2n4x"]
+
+[node name="SlotMachineUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t2n4x")
+
+[node name="ReelContainer1" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_right = -158.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reel" parent="ReelContainer1" instance=ExtResource("1_l6rrs")]
+
+[node name="ReelContainer2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reel" parent="ReelContainer2" instance=ExtResource("1_l6rrs")]
+reelID = 2
+
+[node name="ReelContainer3" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 165.0
+offset_right = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reel" parent="ReelContainer3" instance=ExtResource("1_l6rrs")]
+reelID = 3
+
+[node name="SpinButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = 143.0
+offset_right = 212.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "SPINNNN!!!!!!"
+
+[node name="betAmount" type="SpinBox" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -212.0
+offset_right = 172.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 1.0
+max_value = 10000.0
+value = 1000.0
+alignment = 1
+
+[node name="Label" type="Label" parent="betAmount"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -78.0
+offset_right = 51.5
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "BET AMOUNT"
+
+[node name="Result" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = 242.0
+offset_right = 265.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "RESULT"
+horizontal_alignment = 1
+
+[connection signal="button_up" from="SpinButton" to="." method="_on_spin_button_button_up"]
